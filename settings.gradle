@@ -1,2 +1,4 @@
 rootProject.name = 'flink_casestudy'
+include 'custom_watermark'
+include 'common'
 
