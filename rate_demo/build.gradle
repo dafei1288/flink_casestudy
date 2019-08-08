@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+group 'cn.flinkhub'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(':common')
+
+    compile group: 'org.apache.flink', name: 'flink-connector-kafka-0.10_2.12', version: '1.8.1'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
