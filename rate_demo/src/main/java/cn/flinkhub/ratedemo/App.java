@@ -107,13 +107,11 @@ public class App {
         DataStream<Tuple9<Long,String,Integer,String,Integer,Long,String,Integer,Integer>> joinedStream = oraderTimedStream.join(rateTimedStream).where(new KeySelector<Tuple5<Long,String,Integer,String,Integer>,String>(){
                 @Override
                 public String getKey(Tuple5<Long,String,Integer,String,Integer> value) throws Exception {
-//                System.out.println(value.getField(3).toString());
                     return value.getField(3).toString();
                 }
         }).equalTo(new KeySelector<Tuple3<Long,String,Integer>,String>(){
             @Override
             public String getKey(Tuple3<Long,String,Integer> value) throws Exception {
-//                System.out.println(value.getField(1).toString());
                 return value.getField(1).toString();
             }
         }).window(TumblingEventTimeWindows.of(Time.seconds(10)))
@@ -125,6 +123,10 @@ public class App {
                         return Tuple9.of(first.f0,first.f1,first.f2,first.f3,first.f4,second.f0,second.f1,second.f2,res);
                     }
                 });
+
+
+
+
 
         joinedStream.print();
         env.execute("done!");
