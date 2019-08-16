@@ -228,7 +228,7 @@ public class App {
             this.topSize = topSize;
         }
 
-        // 用于存储商品与点击数的状态，待收齐同一个窗口的数据后，再触发 TopN 计算
+        // 用于存储商品状态，待收齐同一个窗口的数据后，再触发 TopN 计算
         private ListState<OrderView> orderState;
 
         @Override
